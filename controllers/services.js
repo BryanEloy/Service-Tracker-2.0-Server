@@ -11,7 +11,7 @@ const servicePost= async(req= request, res= response)=>{
 
         if(serviceDB){
             return res.status(400).json({
-                msg: `El servicio: ${service.name} ya fue registrado`
+                error: `El servicio: ${service.name} ya fue registrado`
             });
         }
         //Guardar el usuario que creo el servicio con el JWT

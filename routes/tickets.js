@@ -17,7 +17,7 @@ router.post('/',[
     check('service', 'El ID del proyecto es obligatorio').not().isEmpty(),
     check('service', 'ID invalido').isMongoId(),
     check('service').custom(idServiceValidator),
-    check('name', 'El nombre de la tarea es obligatorio').not().isEmpty(),
+    check('name', 'El nombre del ticket es obligatorio').not().isEmpty(),
     validate
 ], ticketPost);
 

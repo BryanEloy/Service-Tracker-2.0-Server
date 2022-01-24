@@ -4,19 +4,20 @@ const Service = require("../models/Service");
 const Ticket= require('../models/Ticket');
 
 const ticketPost= async(req= request, res= response)=>{
+    const {name}= req.body;
+    try {       
+        const ticketDB= await Ticket.findOne({name});
 
-    try {
-        const service= await Service.findById(req.body.service);
-
-        //Verificamos que el usuario sea el creador del proyecto
-        if(service.creator.toString() !== req.user.id){
-            return res.status(401).json({
-                msg: 'Solamente el creador del proyecto puede modificar el mismo'
-            })
+        if(ticketDB){
+            return res.status(400).json({
+                error: `El ticket: ${name} ya fue registrado`
+            });
         }
 
         //Crear la tarea
         const ticket= new Ticket(req.body);
+        //Guardar el usuario que creo el servicio con el JWT
+        ticket.creator= req.user.id
         await ticket.save();
 
         res.json({
@@ -32,7 +33,8 @@ const ticketPost= async(req= request, res= response)=>{
 const ticketGet= async(req= request, res= response)=>{
 
     try {
-        const tickets= await Ticket.find( {service: req.query.service} );  
+        const tickets= await Ticket.find( {service: req.query.service} )
+            .populate('creator', 'name')  
         res.json({tickets});
         
     } catch (error) {

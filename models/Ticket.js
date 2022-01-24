@@ -10,6 +10,10 @@ const TicketSchema= Schema({
         type: Schema.Types.ObjectId,
         ref: 'Service'
     },
+    creator:{
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    },
     date:{
         type: Date,
         default: Date.now()

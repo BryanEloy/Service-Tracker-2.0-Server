@@ -16,7 +16,8 @@ class Server{
             users: "/api/users",
             auth: "/api/auth",
             services: "/api/services",
-            tickets: "/api/tickets"
+            tickets: "/api/tickets",
+            search: "/api/search"
         }
         
         //Conexion a las DB
@@ -36,6 +37,7 @@ class Server{
         this.app.use( this.paths.auth, require('../routes/auth') );
         this.app.use( this.paths.services, require('../routes/services') );
         this.app.use( this.paths.tickets, require('../routes/tickets') );
+        this.app.use( this.paths.search, require('../routes/search') );
     }
 
     middlewares(){
