@@ -10,10 +10,10 @@ const router= Router();
 
 //Crear usuario
 router.post('/',[
-    check('email', 'El correo es invalido').isEmail(),
+    check('email', 'Mail is invalid').isEmail(),
     check('email').custom(emailValidator),
-    check('name', 'El nombre es obligatorio').not().isEmpty(),
-    check('password', 'La contraseña debe tener mas de 6 caracteres').isLength({min:6  }),
+    check('name', 'The name is mandatory').not().isEmpty(),
+    check('password', 'Password must be longer than 6 characters').isLength({min:6  }),
     validate
 ], userPost )
 

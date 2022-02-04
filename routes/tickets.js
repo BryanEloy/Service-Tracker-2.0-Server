@@ -14,10 +14,10 @@ const router= Router();
 
 router.post('/',[
     validateJWT,
-    check('service', 'El ID del proyecto es obligatorio').not().isEmpty(),
-    check('service', 'ID invalido').isMongoId(),
+    check('service', 'Service ID is required').not().isEmpty(),
+    check('service', 'ID invalid').isMongoId(),
     check('service').custom(idServiceValidator),
-    check('name', 'El nombre del ticket es obligatorio').not().isEmpty(),
+    check('name', 'Name of the ticket is required').not().isEmpty(),
     validate
 ], ticketPost);
 
@@ -28,21 +28,21 @@ router.get('/',[
 
 router.put('/:id',[
     validateJWT,
-    check('id', 'El ID del servicio es obligatorio').not().isEmpty(),
-    check('id', 'ID invalido').isMongoId(),
+    check('id', 'Ticket ID is required').not().isEmpty(),
+    check('id', 'ID invalid').isMongoId(),
     check('id').custom(idTicketValidator),
-    check('service', 'El ID del servicio es obligatorio').not().isEmpty(),
-    check('service', 'ID invalido').isMongoId(),
+    check('service', 'Service ID is required').not().isEmpty(),
+    check('service', 'ID invalid').isMongoId(),
     validate
 ],ticketPut);
 
 router.delete('/:id',[
     validateJWT,
-    check('id', 'El ID del proyecto es obligatorio').not().isEmpty(),
-    check('id', 'ID invalido').isMongoId(),
+    check('id', 'Ticket ID is required').not().isEmpty(),
+    check('id', 'ID invalid').isMongoId(),
     check('id').custom(idTicketValidator),
-    check('service', 'El ID del servicio es obligatorio').not().isEmpty(),
-    check('service', 'ID invalido').isMongoId(),
+    check('service', 'Service ID is required').not().isEmpty(),
+    check('service', 'ID invalid').isMongoId(),
 ], ticketDelete)
 
 module.exports= router;

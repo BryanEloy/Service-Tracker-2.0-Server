@@ -22,7 +22,7 @@ const userPost= async(req= request, res= response)=>{
         const token= await generarJWT(user.id);
 
         res.json({
-            msg: "Usuario guardado con exito",
+            msg: "Successfully saved user",
             token
         })
 

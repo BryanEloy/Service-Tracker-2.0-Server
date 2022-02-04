@@ -11,11 +11,11 @@ const userAuth= async( req= request, res= response)=>{
         //Validar el email del user
         const user= await User.findOne({email});
         if(!user)
-           return res.status(400).json( {msg: 'Email incorrecto'} );
+           return res.status(400).json( {msg: 'Incorrect Email'} );
         //Validar la contraseña
         const pass= await bcrypt.compare(password, user.password);
         if(!pass)
-            return res.status(400).json( {msg: 'Contraseña invalida'} );
+            return res.status(400).json( {msg: 'Incorrect Password'} );
 
         //Generar JWT
         const token= await generarJWT(user.id);
@@ -37,7 +37,7 @@ const userGet= async( req= request, res= response)=>{
         res.json({user})
     } catch (error) {
         console.log(error);
-        res.status(500).json({msg: 'Algo salio mal'})
+        res.status(500).json({msg: 'Something went wrong '})
     }
 }
 

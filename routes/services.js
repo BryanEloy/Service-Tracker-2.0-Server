@@ -20,21 +20,21 @@ router.get('/',[
 
 router.post('/',[
     validateJWT,
-    check('name', 'El nombre es obligatorio').not().isEmpty(),
+    check('name', 'The service name is required').not().isEmpty(),
     validate
 ], servicePost);
 
 router.put('/:id',[
     validateJWT,
-    check('id', 'ID invalido').isMongoId(),
+    check('id', 'ID invalid').isMongoId(),
     check('id').custom(idServiceValidator),
-    check('name', 'El nombre del servicio es obligatorio').not().isEmpty(),
+    check('name', 'The service name is required').not().isEmpty(),
     validate
 ], servicePut);
 
 router.delete('/:id',[
     validateJWT,
-    check('id', 'ID invalido').isMongoId(),
+    check('id', 'ID invalid').isMongoId(),
     check('id').custom(idServiceValidator),
     validate
 ], serviceDelete);

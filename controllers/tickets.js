@@ -10,7 +10,7 @@ const ticketPost= async(req= request, res= response)=>{
 
         if(ticketDB){
             return res.status(400).json({
-                error: `El ticket: ${name} ya fue registrado`
+                error: `The ticket: ${name} has already been registered`
             });
         }
 
@@ -26,7 +26,7 @@ const ticketPost= async(req= request, res= response)=>{
 
     } catch (error) {
         console.log(error);
-        res.status(500).json({error: 'Algo salio mal'});
+        res.status(500).json({error: 'something went wrong'});
     }
 }
 
@@ -39,7 +39,7 @@ const ticketGet= async(req= request, res= response)=>{
         
     } catch (error) {
         console.log(error);
-        res.status(500).json({error: 'Algo salio mal'});
+        res.status(500).json({error: 'something went wrong'});
     }
 }
 
@@ -65,7 +65,7 @@ const ticketPut= async(req= request, res= response)=>{
         
     } catch (error) {
         console.log(error);
-        res.status(500).json({error: 'Algo salio mal'});
+        res.status(500).json({error: 'something went wrong'});
     }
 }
 
@@ -89,7 +89,7 @@ const ticketDelete= async(req= request, res= response)=>{
         })
     } catch (error) {
         console.log(error);
-        res.status(500).json({error: 'Algo salio mal'});
+        res.status(500).json({error: 'something went wrong'});
     }
 }
 

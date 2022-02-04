@@ -11,7 +11,7 @@ const servicePost= async(req= request, res= response)=>{
 
         if(serviceDB){
             return res.status(400).json({
-                error: `El servicio: ${service.name} ya fue registrado`
+                error: `The service: ${service.name} has already been registered`
             });
         }
         //Guardar el usuario que creo el servicio con el JWT
@@ -36,7 +36,7 @@ const serviceGet= async(req= request, res= response)=>{
         res.json({services})
     } catch (err) {
         console.log(err);
-        res.status(500).json({error: 'Algo salio mal'});
+        res.status(500).json({error: 'something went wrong'});
     }
 }
 
@@ -62,7 +62,7 @@ const servicePut= async(req= request, res= response)=>{
         })
     } catch (error) {
         console.log(error);
-        res.status(500).json({error: 'Algo salio mal'});
+        res.status(500).json({error: 'something went wrong'});
     }
 }
 
@@ -88,7 +88,7 @@ const serviceDelete= async(req= request, res= response)=>{
 
     } catch (error) {
         console.log(error);
-        res.status(500).json({error: 'Algo salio mal'});
+        res.status(500).json({error: 'something went wrong'});
     }
 }
 
