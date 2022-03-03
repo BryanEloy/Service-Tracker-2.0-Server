@@ -7,7 +7,7 @@
     "dev": "nodemon app.js",
     "start": "node app.js"
   },
-  "author": "Eloy Zataray",
+  "author": "Eloy Zataray, Hugo Gomez, Dniael Mora",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
